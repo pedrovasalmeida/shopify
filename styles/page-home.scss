@@ -11,7 +11,20 @@
     display: flex;
 
     .__tech {
-      background: gray;
+      position: relative;
+
+      p {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 1rem;
+      }
+
+      &:hover {
+        p {
+          display: flex;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,56 @@
+<script src="{{ 'page-home.js' | asset_url }}" defer="defer"></script>
+
+<div id="{{ section.id }}" class="content-wrapper">
+  <div class="__content-title">
+    <h2>{{ section.settings.title }}</h2>
+    <p>
+      {{ section.settings.text }}
+    </p>
+  </div>
+
+  <div class="__content-techs">
+    {% for block in section.blocks %}
+    <div class="__tech {{ block.id }}">
+      {{ block.settings.image | image_url: width: 300 | image_tag }}
+      <p>
+        Tecnologia de alta performance em vendas para elevar a sua marca no comércio virtual.
+        Desenvolvemos projetos completos para B2B, B2C e marketplace, com um time completo focado na
+        evolução do seu e-commerce.
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Technologies Info",
+  "blocks": [
+    {
+      "name": "Imagem",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Tecnologias"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texto",
+      "default": "Subtitulo"
+    }
+  ]
+}
+{% endschema %}

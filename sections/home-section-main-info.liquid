@@ -1,0 +1,65 @@
+{{ 'page-home.css' | asset_url | stylesheet_tag }}
+
+<div id="{{ section.id }}" class="content-wrapper">
+  <h1 class="__content-title">{{ section.settings.custom_text_title }}</h1>
+  <div class="__content-text">{{ section.settings.custom_text_body }}</div>
+
+  <div class="buttons">
+    {% for block in section.blocks %}
+      <button class="__{{ block.type }}-button">
+        {% if block.type == 'primary' %}
+          <span>{{ block.settings.custom_primary_button_text }}</span>
+        {% endif %}
+        {% if block.type == 'secondary' %}
+          <span>{{ block.settings.custom_secondary_button_text }}</span>
+        {% endif %}
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Info",
+  "blocks": [
+    {
+      "name": "Botão Primário",
+      "type": "primary",
+      "settings": [
+        {
+          "id": "custom_primary_button_text",
+          "type": "text",
+          "label": "Edite o texto do botão primário",
+          "default": "Primary"
+        }
+      ]
+    },
+    {
+      "name": "Botão Secundário",
+      "type": "secondary",
+      "settings": [
+        {
+          "id": "custom_secondary_button_text",
+          "type": "text",
+          "label": "Edite o texto do botão secundário",
+          "default": "Secondary"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "id": "custom_text_title",
+      "type": "text",
+      "label": "Edite o titulo",
+      "default": "Título"
+    },
+    {
+      "id": "custom_text_body",
+      "type": "richtext",
+      "label": "Edite o texto",
+      "default": "<p>Adicione seu texto aqui<p>"
+    }
+  ]
+}
+{% endschema %}

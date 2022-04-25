@@ -10,5 +10,14 @@
   display: flex;
 }
 .content-wrapper .__content-techs .__tech {
-  background: gray;
+  position: relative;
+}
+.content-wrapper .__content-techs .__tech p {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 1rem;
+}
+.content-wrapper .__content-techs .__tech:hover p {
+  display: flex;
 }
